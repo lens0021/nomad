@@ -850,11 +850,6 @@ func (d *Driver) createContainerConfig(task *drivers.TaskConfig, driverConfig *T
 		hostConfig.MemorySwappiness = nil
 	} else {
 		hostConfig.MemorySwap = memory
-
-		// disable swap explicitly in non-Windows environments
-		var swapiness int64 = 0
-		hostConfig.MemorySwappiness = &swapiness
-
 	}
 
 	loggingDriver := driverConfig.Logging.Type
